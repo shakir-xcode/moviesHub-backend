@@ -1,9 +1,18 @@
 const express = require('express');
-const app = express();
-
+const cors = require('cors');
 const movieRoutes = require('./routes/movieRoutes');
 
+
+const app = express();
+
 app.use(express.json());
+
+// Enable requests from all origins
+const corsOptions = {
+    origin: '*'
+};
+app.use(cors(corsOptions));
+
 
 app.use('/api/movies', movieRoutes);
 
