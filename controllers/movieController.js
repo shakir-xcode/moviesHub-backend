@@ -14,7 +14,7 @@ const getPopularMovies = (req, res) => {
 }
 
 const getTopRatedMovies = (req, res) => {
-    axios.get(testApi)
+    axios.get(request.topRated)
         .then(response => {
             console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
@@ -50,7 +50,7 @@ const getHorrorMovies = (req, res) => {
 }
 
 const getUpcomingMovies = (req, res) => {
-    axios.get(request.movieInfo)
+    axios.get(request.upcoming)
         .then(response => {
             console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
