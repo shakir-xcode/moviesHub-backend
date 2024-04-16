@@ -6,16 +6,20 @@ const movieRoutes = require('./routes/movieRoutes');
 
 // Allow requests from specific origins
 const allowedOrigins = ['https://192.168.43.250:5173', 'https://movieshub08.netlify.app'];
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-};
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     }
+// };
 
+// Enable requests from all origins
+const corsOptions = {
+    origin: '*'
+};
 // Use CORS middleware with custom options
 app.use(cors(corsOptions));
 
