@@ -1,15 +1,6 @@
 const { testApi, request, getSearchUrl } = require("../api");
 const axios = require('axios');
 
-const getRandomMovie = (req, res) => {
-    axios.get(testApi)
-        .then(response => {
-            console.log(response.data)
-            res.send(JSON.stringify(response.data))
-        })
-        .catch()
-};
-
 const getPopularMovies = (req, res) => {
     axios.get(request.popular)
         .then(response => {
@@ -84,7 +75,6 @@ const getRequestedMovies = (req, res) => {
 
 
 module.exports = {
-    getRandomMovie,
     getPopularMovies,
     getHorrorMovies,
     getTopRatedMovies,
