@@ -18,7 +18,7 @@ app.use('/api/movies', movieRoutes);
 
 
 
-// Error handling middleware O but R
+// Error handling middleware Opt but Rec
 app.use((err, req, res, next) => {
     // Handle errors here and send appropriate response
     console.error(err.stack);

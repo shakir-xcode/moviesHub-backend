@@ -62,9 +62,8 @@ const getUpcomingMovies = (req, res) => {
 }
 
 const getRequestedMovies = (req, res) => {
-    axios.get(getSearchUrl(req.body.title))
+    axios.get(getSearchUrl(req.query.title))
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {
