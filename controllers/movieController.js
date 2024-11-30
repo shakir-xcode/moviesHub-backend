@@ -4,7 +4,6 @@ const axios = require('axios');
 const getPopularMovies = (req, res) => {
     axios.get(request.popular)
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {
@@ -16,7 +15,6 @@ const getPopularMovies = (req, res) => {
 const getTopRatedMovies = (req, res) => {
     axios.get(request.topRated)
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {
@@ -28,7 +26,6 @@ const getTopRatedMovies = (req, res) => {
 const getTrendingMovies = (req, res) => {
     axios.get(request.trending)
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {
@@ -40,7 +37,6 @@ const getTrendingMovies = (req, res) => {
 const getHorrorMovies = (req, res) => {
     axios.get(request.horror)
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {
@@ -52,7 +48,6 @@ const getHorrorMovies = (req, res) => {
 const getUpcomingMovies = (req, res) => {
     axios.get(request.upcoming)
         .then(response => {
-            console.log(response.data)
             res.status(200).send(JSON.stringify(response.data));
         })
         .catch(err => {

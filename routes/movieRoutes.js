@@ -1,14 +1,15 @@
 const express = require('express');
 const movieController = require('../controllers/movieController');
+const logger = require('../middleware/logger');
 
 const router = express.Router();
 
-router.get('/popular', movieController.getPopularMovies);
-router.get('/topRated', movieController.getTopRatedMovies);
-router.get('/trending', movieController.getTrendingMovies);
-router.get('/horror', movieController.getHorrorMovies);
-router.get('/upcoming', movieController.getUpcomingMovies);
-router.get('/search', movieController.getRequestedMovies);
+router.get('/popular', logger, movieController.getPopularMovies);
+router.get('/topRated', logger, movieController.getTopRatedMovies);
+router.get('/trending', logger, movieController.getTrendingMovies);
+router.get('/horror', logger, movieController.getHorrorMovies);
+router.get('/upcoming', logger, movieController.getUpcomingMovies);
+router.get('/search', logger, movieController.getRequestedMovies);
 
 
 module.exports = router;
