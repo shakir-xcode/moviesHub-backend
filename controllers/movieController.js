@@ -67,6 +67,32 @@ const getRequestedMovies = (req, res) => {
         })
 }
 
+const getDiscoveredMovies = async (req, res) => {
+
+try {
+
+    const response = await fetch(request.discover, {
+      method: 'GET', 
+      headers: {
+	accept: 'application/json',
+	Authorization: `Bearer ${process.env.TMDB_API_KEY}`
+      }
+    });
+
+    if (!response.ok) {
+	res.status(404).send({ message: 'failed to get movies' })
+    }
+
+    const data = await response.json();
+    res.status(200).send(JSON.stringify(data));
+ } 
+ catch(err) {
+        console.log(err.message)
+	res.status(404).send({ message: 'failed to get movies' })
+ } 
+   
+}
+
 
 module.exports = {
     getPopularMovies,
@@ -75,4 +101,5 @@ module.exports = {
     getTrendingMovies,
     getUpcomingMovies,
     getRequestedMovies,
+    getDiscoveredMovies,
 };
