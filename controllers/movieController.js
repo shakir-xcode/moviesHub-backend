@@ -71,7 +71,7 @@ const getDiscoveredMovies = async (req, res) => {
 
 try {
 
-    const response = await fetch(testApi, {
+    const response = await fetch(request.discover, {
       method: 'GET', 
       headers: {
 	accept: 'application/json',
