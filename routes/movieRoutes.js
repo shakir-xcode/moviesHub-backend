@@ -10,7 +10,8 @@ router.get('/trending', logger, movieController.getTrendingMovies);
 router.get('/horror', logger, movieController.getHorrorMovies);
 router.get('/upcoming', logger, movieController.getUpcomingMovies);
 router.get('/search', logger, movieController.getRequestedMovies);
-router.get('/discover', logger, movieController.getDiscoveredMovies)
+router.get('/discover', logger, movieController.getDiscoveredMovies);
+router.get('/details', logger, movieController.getMovieDetails);
 
 
 module.exports = router;

@@ -1,5 +1,6 @@
-const { testApi, request, getSearchUrl } = require("../api");
+const { testApi, request, getSearchUrl, getMovieDetailsUrl } = require("../api");
 const axios = require('axios');
+
 
 const getPopularMovies = (req, res) => {
     axios.get(request.popular)
@@ -67,8 +68,22 @@ const getRequestedMovies = (req, res) => {
         })
 }
 
-const getDiscoveredMovies = async (req, res) => {
 
+const getMovieDetails = (req, res) => {
+    axios.get(getMovieDetailsUrl(req.query.movie_id))
+        .then(response => {
+            res.status(200).send(JSON.stringify(response.data));
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(404).send({ message: 'not found' })
+        })
+}
+
+
+
+
+const getDiscoveredMovies = async (req, res) => {
 try {
 
     const response = await fetch(request.discover, {
@@ -102,4 +117,5 @@ module.exports = {
     getUpcomingMovies,
     getRequestedMovies,
     getDiscoveredMovies,
+    getMovieDetails,
 };

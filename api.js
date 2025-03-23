@@ -14,6 +14,6 @@ const request = {
 }
 
 const getSearchUrl = title => `https://api.themoviedb.org/3/search/movie?query=${title}&api_key=${apiKey}`;
+const getMovieDetailsUrl = id => `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`;
 
-
-module.exports = { testApi, request, getSearchUrl }
+module.exports = { testApi, request, getSearchUrl, getMovieDetailsUrl }
